@@ -1,0 +1,102 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: bisque;
+  
+}
+
+
+.container-fluid {
+    background-color: #fff8c1;
+    
+    position: relative;
+}
+
+.container-fluid > svg {
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+}
+
+.container-fluid > div:first-child {
+   /* border: 3px dotted black; */
+   z-index: 1;
+}
+
+.flex-item {
+    padding: 1em;
+    display: flex;
+    flex-flow: column;
+    flex: 0 0 50%;
+    height: 100vh;
+
+}
+
+.flex-item > div > h1, .flex-item > div > h2{
+    font-family: roboto-medium;
+    color: #c05555;
+}
+
+.flex-item > div > p {
+    font-family: roboto-light;
+    font-weight: bold;
+    font-size: 1.5em;
+    /* background-color: red; */
+  
+    /* padding-left: 3.5em; */
+
+}
+
+.flex-item > h2{
+    font-family: roboto-medium;
+    color: #c05555;
+    margin-top: 4em;
+}
+
+#form_id > .form-group{
+
+    margin-top: 4em;
+  
+}
+
+#form_id > .form-group input {
+    border-radius: 20px;
+    height: 4em;
+    background-color: transparent;
+    border: 1px solid #c05555;
+    font-size: 1.5em;
+    text-align: center;
+    
+}
+
+
+
+#form_id > button {
+background-color: #c05555;
+font-size: 2em;
+}
+
+
+
+/* responsiveness*/
+@media only screen and (max-width: 576px) {
+    
+   .flex-item > div > h1 {
+    font-size: 4em;
+   }
+   .flex-item > div > h2 {
+    font-size: 2em;
+   }
+   .flex-item > div > p {
+    font-size: 1.5em;
+    /* background-color: red; */
+   }
+
+   #form_id > button {
+    background-color: #c05555;
+    margin-top: 1em !important;
+    }
+    
+  }
+
+
