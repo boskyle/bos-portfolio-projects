@@ -1,0 +1,23 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: lightsteelblue;
+}
+
+.container-fluid {
+    background-color: lightsteelblue;
+}
+
+.col {
+   display: flex;
+   justify-content: center;
+}
+
+
+
+
+/* map width */
+#map_id {
+    height: 500px;
+    border: 2px solid greenyellow;
+}
