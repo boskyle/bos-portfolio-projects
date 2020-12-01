@@ -18,6 +18,9 @@ $(document).ready(function () {
 }).addTo(my_map);
 
 
+fetch_canada();
+
+
 
 
 
@@ -26,3 +29,39 @@ $(document).ready(function () {
 
 
 });
+
+
+const fetch_canada = () => {
+
+    // local array to store json property 'name'
+    let prov = [];
+
+    
+    $.ajax({
+        type: "GET",
+        url: "http://api.geonames.org/searchJSON?username=boskyle&countryBias=ISO-3166-2&country=ca&featureCode=ADM1",
+        data: "data",
+        dataType: "json",
+        success: function (response) {
+            // console.log(response);
+           
+            for (let i = 0;i<Object.keys(response.geonames).length;i++)
+            {
+               prov[i]=response.geonames[i].name;
+            }
+            
+            
+        }
+    });
+
+    $('#province_input').autocomplete({
+        source: prov
+    });
+
+    $('#search_btn').click(function (e) { 
+        e.preventDefault();
+        console.log('clicked');
+        
+    });
+   
+}

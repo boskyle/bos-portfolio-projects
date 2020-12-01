@@ -12,20 +12,20 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
 integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
 crossorigin=""/>
-<title>ISS Tracker</title>
+<title>Province Finder</title>
 </head>
 <body>
 
     <div class="container-fluid vh-100 p-0">
 
         <div class="row-cols no-gutters p-5">
-
-            <div class="col bg-warning">
-              
-               hello
+            <div class="col mt-5">
+               
+               <input class="flow-control w-25" id="province_input" placeholder="Province/Territory">
+               <button class="btn bg-warning ml-5" id="search_btn">Search</button>
             </div>
             
-            <div class="col-8 bg-info mt-5 mx-auto">
+            <div class="col-8 bg-info mx-auto">
                 <div id="map_id"></div>
             </div>
 
@@ -38,6 +38,7 @@ crossorigin=""/>
     </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- leaflet js -->

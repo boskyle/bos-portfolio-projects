@@ -4,6 +4,13 @@ html, body {
     background-color: lightsteelblue;
 }
 
+ul.ui-autocomplete {
+    list-style: none;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
 .container-fluid {
     background-color: lightsteelblue;
 }
@@ -11,6 +18,10 @@ html, body {
 .col {
    display: flex;
    justify-content: center;
+}
+
+.col-8 {
+    margin-top: 10%;
 }
 
 
