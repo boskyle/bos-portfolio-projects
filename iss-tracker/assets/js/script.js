@@ -1,11 +1,34 @@
+// global so it renitializes (leaflet)
+var my_map;
+
 $(document).ready(function () {
+    // make population hidden at first
+    $('#population_show > span').hide();
+
+    /* function that fetches geonames api for canada, get province/terit. lat and long 
+        and pass it as an parameter to the long lat argument of leaflet map api
+    */
+fetch_canada();
+
+
+});
+
+
+
+// pass coordinate from ajax request based on valid user input
+
+const build_map = (long, lat) => {
+
+  
+
+   if(my_map != undefined) my_map.remove();
+
+    my_map = L.map('map_id');
+    my_map.setView([parseFloat(long),parseFloat(lat)], 8);
+
+
     
-
-
-    var my_map = L.map('map_id').setView([51.505, -0.09], 13);
-
-    
-    var marker = L.marker([51.5, -0.09]).addTo(my_map);
+    var marker = L.marker([parseFloat(long),parseFloat(lat)]).addTo(my_map);
 
     // add tile layer
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -18,24 +41,29 @@ $(document).ready(function () {
 }).addTo(my_map);
 
 
-fetch_canada();
+   
 
 
 
 
 
 
+}
 
 
-
-});
 
 
 const fetch_canada = () => {
 
     // local array to store json property 'name'
-    let prov = [];
+   
+    let userInput;
+    let provObj;
+    var res_name;
 
+
+
+   
     
     $.ajax({
         type: "GET",
@@ -43,25 +71,54 @@ const fetch_canada = () => {
         data: "data",
         dataType: "json",
         success: function (response) {
-            // console.log(response);
-           
-            for (let i = 0;i<Object.keys(response.geonames).length;i++)
-            {
-               prov[i]=response.geonames[i].name;
-            }
             
-            
+            // iteration of response (JSON) length  
+            for (let i = 0;i<Object.keys(response.geonames).length;i++) {
+               provObj=response.geonames;
+        }
+
+            // destructure
+            // get only the 'name' property  of an array
+            res_name = provObj.map(a => a.name);
+            $('#province_input').autocomplete({source: res_name});                                    
         }
     });
 
-    $('#province_input').autocomplete({
-        source: prov
-    });
+   
 
     $('#search_btn').click(function (e) { 
         e.preventDefault();
-        console.log('clicked');
-        
+        userInput=$('#province_input').val();      
+
+        if ($.inArray(userInput,res_name) === -1) {
+            alert('Enter a valid province/territory.');
+            userInput=$('#province_input').val('');      
+        } else 
+            {
+                // build_map function goes here
+                // based on map a.name i want to get
+            //    console.log(provObj.map(a => a.name));
+
+                // iterate
+               
+               for (let i=0;i<provObj.length;i++)   {
+                
+                if(userInput === provObj[i].name) {
+                    console.log(provObj[i].lat+provObj[i].lng);
+                    $('#population_show > span').show();
+                    $('.population').empty();
+                    $('.population').append(provObj[i].population);
+                    build_map(provObj[i].lat,provObj[i].lng);
+                    break;
+                }
+
+               }
+         
+
+
+            }
     });
+        // doesnt exist (word)
+        
    
 }

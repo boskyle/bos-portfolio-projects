@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
 <link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/fontsRef.css">
 <!-- leaflet css-->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
 integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
@@ -16,19 +17,22 @@ crossorigin=""/>
 </head>
 <body>
 
-    <div class="container-fluid vh-100 p-0">
+    <div class="container-fluid vh-100 p-0 d-flex flex-column justify-content-center">
 
-        <div class="row-cols no-gutters p-5">
-            <div class="col mt-5">
-               
-               <input class="flow-control w-25" id="province_input" placeholder="Province/Territory">
-               <button class="btn bg-warning ml-5" id="search_btn">Search</button>
-            </div>
-            
-            <div class="col-8 bg-info mx-auto">
-                <div id="map_id"></div>
-            </div>
+        
+               <h2 class="display-4 mx-auto">Province Finder 1.0</h2>
+               <input class="flow-control w-25 mx-auto mt-5 rounded-pill text-center" id="province_input" placeholder="Province/Territory">
 
+               <button class="btn btn-outline-secondary mx-auto" id="search_btn">Search</button>
+           
+                <!-- map -->
+                <div  class='mx-auto' id="map_id"></div>
+                <span class="w-100  d-flex flex-column align-items-center justify-content-center" id="population_show">
+                    <span>Population</span>
+                    <span class="population"></span>
+
+                </span>
+       
 
         </div>
 

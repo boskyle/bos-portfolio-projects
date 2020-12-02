@@ -4,24 +4,59 @@ html, body {
     background-color: lightsteelblue;
 }
 
+
 ul.ui-autocomplete {
     list-style: none;
     list-style-type: none;
     padding: 0px;
     margin: 0px;
+    font-size: 1.2em;
+    margin-left: 2em !important;
+
+    
+
+
+}
+.ui-helper-hidden-accessible{
+    display:none !important;
+    padding: 0px;
+    margin: 0px;
+}
+
+ul.ui-autocomplete.ui-menu li:first-child a{
+    color:blue;
 }
 
 .container-fluid {
     background-color: lightsteelblue;
 }
-
-.col {
-   display: flex;
-   justify-content: center;
+.container-fluid > h2 {
+    font-family: roboto-light;
+    color: midnightblue;
 }
 
-.col-8 {
-    margin-top: 10%;
+.container-fluid > span {
+    height: 10%;
+    margin-top: 1em;
+}
+
+
+
+#province_input {
+font-size: 2em;    
+color: midnightblue;
+border: 2px solid black;
+}
+#search_btn {
+font-size: 2em;
+margin-top: 3em;
+outline: none !important;
+box-shadow: none;
+
+}
+#population_show {
+    font-size: 2em;
+    font-family: roboto-light;
 }
 
 
@@ -30,5 +65,9 @@ ul.ui-autocomplete {
 /* map width */
 #map_id {
     height: 500px;
-    border: 2px solid greenyellow;
+    /* border: 2px solid greenyellow; */
+    width: 50%;
+    margin-top: 3%;
 }
+
+
