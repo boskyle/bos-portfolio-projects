@@ -79,8 +79,10 @@ const fetch_canada = () => {
 
             // destructure
             // get only the 'name' property  of an array
-            res_name = provObj.map(a => a.name);
-            $('#province_input').autocomplete({source: res_name});                                    
+            // converted to uppercase 
+            res_name = provObj.map(a => a.name.toUpperCase());
+            $('#province_input').autocomplete({source: res_name});              
+                 
         }
     });
 
@@ -90,7 +92,10 @@ const fetch_canada = () => {
         e.preventDefault();
         userInput=$('#province_input').val();      
 
-        if ($.inArray(userInput,res_name) === -1) {
+       
+        
+
+        if ($.inArray(userInput.toUpperCase(),res_name) === -1) {
             alert('Enter a valid province/territory.');
             userInput=$('#province_input').val('');      
         } else 
@@ -103,7 +108,7 @@ const fetch_canada = () => {
                
                for (let i=0;i<provObj.length;i++)   {
                 
-                if(userInput === provObj[i].name) {
+                if(userInput.toUpperCase() === provObj[i].name.toUpperCase()) {
                     console.log(provObj[i].lat+provObj[i].lng);
                     $('#population_show > span').show();
                     $('.population').empty();
